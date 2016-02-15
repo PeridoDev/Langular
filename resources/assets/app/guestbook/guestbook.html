@@ -1,0 +1,39 @@
+<form>
+	<textarea id="txtMsg" class="form-control" name="text" rows="8" cols="40" ng-model="self.guestbook.input"></textarea>
+	<button id="btnSubmitMsg" ng-disabled="self.guestbook.isLocked" ng-click="self.guestbook.postMessage()" type="submit" class="btn btn-default">
+		submitsdsjhakjhfsalk
+	</button>
+</form>
+<hr>
+<table class="table table-striped">
+	<tr>
+		<th>
+			created_at
+		</th>
+		<th>
+			text
+		</th>
+		<th>
+		</th>
+	</tr>
+	<tr ng-if="self.guestbook.isLongDelay">
+		<td colspan="3">
+			<div class="center-inner">
+				<span class="glyphicon glyphicon-asterisk spinning"></span>
+			</div>
+		</td>
+	</tr>
+	<tr ng-repeat="message in self.guestbook.messages">
+		<td>
+			{{message.created_at}}
+		</td>
+		<td>
+			{{message.text}}
+		</td>
+		<td>
+			<div class="center-inner">
+				<button type="button" class="btn btn-danger" ng-disabled="self.guestbook.isLocked" ng-click="self.guestbook.deleteMessage(message)" name="button"><i class="glyphicon glyphicon-trash"></i></button>
+			</div>
+		</td>
+	</tr>
+</table>
